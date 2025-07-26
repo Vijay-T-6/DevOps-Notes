@@ -1,0 +1,240 @@
+git remote add origin https://github.com/Vijay-T-6/DevOps-learning.git
+
+
+Q) Merged local to remote but not able to see changes in remote what could be the reason
+1. Check whether the branch is correct or not
+check where did u push(git remote show origin)
+
+2. Remote Branch Not Updated
+If you pushed to a new branch, it might not be visible on the remote until you create a pull request or switch to it manually.
+
+3. Push Didn't Actually Happen
+Maybe the push failed silently or was interrupted.
+Check your push history:
+
+git log -n 1
+git status
+
+5. Pushed to a Fork or Different Remote
+If you have multiple remotes (e.g., origin, upstream), you might have pushed to the wrong one.
+Check remotes:
+git remote -v
+
+Detached HEAD or Rebase Confusion
+If you were in a detached HEAD state or rebased and didn't push forcefully, the changes might not have gone through.
+
+================================
+Q) How to test particular commit
+git checkout commit hash (detached HEAD state)
+we can do testing on this commit and add new commits here and to save these new commits we can create branch using
+git switch -c <branch name>
+
+=================================
+Q) How to check local is ahead or behind of remote
+
+git log --oneline --left-right origin/main...main
+git diff origin/main master
+
+================================
+Q) How to push a tag for release
+git push origin tag
+git push origin --tags
+
+git push origin --delete tag
+git push origin --delete tag1 tag2 tag3
+git tag -l | xargs -n 1 git push origin --delete(it will delete all remote tags)
+git ls-remote --tags origin
+
+================================
+Q) How to check commit id belongs to which branch
+git branch --contains -commitid
+
+===============================
+Q) How to list remote branches
+git branch -r
+or git fetch --all then git branch -r
+
+===============================
+Q) How to check changes of remote branch without effecting local
+git fetch
+git log HEAD..origin/main
+
+or 
+git fetch repo url
+cat .git/FETCH_HEAD
+
+==================================
+Q) What is git patch, how to do and when to do
+
+git format-patch -1 HEAD -->creates a patch file from last commits.
+git apply or git am -->applies the patch to another repo.
+It’s a great way to share changes without pushing to a remote.
+
+git diff commitid f1 > file.patch
+
+===================================
+Q) How to copy file from one branch to other branch without commit
+
+git checkout source-branch -- path/to/file
+git restore --source source-branch path/to/file
+
+======================================
+Q) How to clean untracked files
+git clean -f, (forece removal of files only)
+git clean -d -f (files and direc)
+git clean -n (preview what are going to delete)
+
+====================================
+Q) How to split large commit to smaller commits
+when you want to improve the clarity of your commit history or isolate changes for better code review
+
+git rebase -i HEAD~1
+pick-->edit
+git rebase HEAD^
+git add -p 
+Stage this hunk [y,n,q,a,d,s,e,?]?
+s
+y
+e
+git commit -m ""
+git rebase --continue
+
+==================================
+git describe
+====================================
+Q) How to push a single commit to remote
+if it is recent commit and commits then we can push using
+git push origin branch
+
+but if it is one particular commit other than recent one then it is not possible directly
+create new branch from remote
+cheery-pick commit id
+then push this branch
+
+======================================
+Q) How to clone only particular branch
+git clone --branch branch-name --single-branch https://github.com/username/repository.git
+
+=====================================
+Q) How to rename a repo branch
+for local repo
+git branch -m old new
+
+for remote repo
+git push origin --delete oldbranch
+git push origin new branch name
+
+or 
+
+git push origin <local-branch-name>:refs/heads/<new-remote-branch-name>
+
+==================================
+Q) How to delete repo branch
+git push origin --delete branch
+
+=====================================
+can create fork locally
+=======================================
+Q) What is alias in git and how to do it
+git config --global alias.<alias name> 'git command'
+git config --global --unset alias.<alias name>
+
+======================================
+Q) How to archive whole git repo
+
+tar -czf my-repo-archive.tar.gz my-repo/
+
+git archive --format=tar.gz --output=repo.tar.gz main
+
+=======================================
+comparing branches( with git log)
+git log branch1..branch2
+======================================
+Q) How to check commits of particular user
+
+git log --author="Username"
+
+=======================================
+Q) How to remove tags from remote
+git push origin --delete tagname
+git push origin :refs/tags/tagname
+
+======================================
+Q) How to sync feat with main 
+merge or rebase
+
+=======================================
+Q) What is git graph and how to do
+
+git log --oneline --graph --all --decorate
+
+======================================
+Q) Can we prevent push some files from local to repo
+.gitignore
+=====================================
+Q) Clone repo but avoid full history(shallow clone)
+
+git clone --depth 1 https://github.com/user/repo.git
+
+======================================
+Q) How many lines added in commit id
+git show --numstat commitid
+
+======================================
+Q) How to stash local files
+======================================
+Q) How to take backup of branch
+create new branch from it 
+or use git archive --format tar
+or use git fetch --tags
+
+======================================
+Q) To change url of origin
+git remote set-url origin new url
+
+=====================================
+Q) List all commit id in last 7 days
+git log --since="1 day ago" --pretty=format:"%H"
+
+====================================
+Q) what are other git stash commands
+=====================================
+Q) what is git hook what is purpose of it explain with exmaple in simple way
+
+Hook Name	When It Runs				Use Case Example
+pre-commit	Before a commit is made			Run tests, linters, or formatters
+commit-msg	After commit message is entered		Enforce commit message style
+pre-push	Before pushing to remote		Run tests or check branch name
+post-merge	After a merge completes			Reinstall dependencies or notify team
+
+===================================
+Q) Accidentally deleted the branch then how to get back
+for local repo
+git reflog
+git checkout -b your-branch-name <commit-hash>
+
+from remote repo
+git checkout -b your-branch-name origin/your-branch-name
+
+===================================
+Branching strategy
+
+Main-->develop-->Feature
+release
+hotfix
+===================================
+Q) difference between merge and rebase
+Q) difference between reset and revert
+Q) How the change the commit message of  particular commit ID
+Q) How to combine the multiple commits
+Q) Git reset ?
+   ---> mixed
+   ---> soft
+   ---> hard
+Q) What is .gitignore file?
+Q) git show <commmit_iD>
+Q) Git blame <commmit_iD>
+Q) git bisect
+Q) git diff
+Q) By mistaken pushed wrong branch to remote repo how to get back to previous state
+Q) 
