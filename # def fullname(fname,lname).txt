@@ -1,0 +1,279 @@
+# def fullname(fname,lname):
+#     print("My name is " + fname + " " + lname)
+# fullname("Vijay","Thakkalapally")
+
+# def schoolkids(*kids):
+#     for i in kids:
+#         print(i)
+# schoolkids("vijay","Vinay","arjun")
+
+# def childrens(child1,child2,child3):
+#     print("the elder one is "+child1+", the middle one is "+child2+" and the last guy is "+child3)
+# childrens("Vinay","Vijay","Arjun")
+# childrens(child2="Vijay",child3="Arjun",child1="Vinay")
+
+# def place(country="INDIA"):
+#     print("I am from "+country)
+# place("USA")
+# place("UK")
+# place()
+# place("Australia")
+
+# def multiply(x):
+#     return 3*x
+# print(multiply(5))
+# print(multiply(15))
+
+
+# numbers=[1,4,3,2]
+# max_val=numbers[0]
+# min_val=numbers[0]
+# max_index=0
+# min_index=0
+# for i in range(len(numbers)):
+#     if numbers[i]>max_val:
+#         max_val=numbers[i]
+#         max_index=i
+#     if numbers[i]<min_val:
+#         min_val=numbers[i]
+#         min_index=i
+# print ("maximum value is ", max_val, "at index ", max_index)
+# print ("minimum value is ", min_val, "at index ", min_index)
+
+# numbers=[1,2,3,4,5,6]
+# n=len(numbers)
+# if n%2==0:
+#     print("middle numbers are ",numbers[n//2 - 1], "and ",numbers[n//2])
+# else:
+#     print("middle number is ",numbers[n//2])
+
+# names=["vijay","vinay","arjun"]
+# for i in names:
+#     count=0
+#     for j in i:
+#         count+=1
+#     print("length of the ",i,"is ",count)
+    
+    
+# names=["vijay","ajju","revansh"]
+# longest=names[0]
+# long_len=0
+
+# for char in longest:
+#     long_len+=1
+# for name in names[1:]:
+#     count =0
+#     for char in name:
+#         count+=1
+#         if count >long_len:
+#             longest=name
+#             long_len=count
+# print("longest str is  ",longest, " and length is ",long_len)
+    
+
+
+
+# num = int(input("Enter a number: "))
+# if num < 2:
+#     print("Not a prime number.")
+# else:
+#     is_prime = True
+#     i = 2
+#     while i * i <= num:
+#         if num % i == 0:
+#             is_prime = False
+#             break
+#         i += 1
+
+#     if is_prime:
+#         print("It's a prime number.")
+#     else:
+#         print("Not a prime number.")
+
+
+# s = " madam"
+# s=s.strip()
+# reversed_s = ""
+
+# for i in range(len(s)):
+#     reversed_s = s[i] + reversed_s
+# if s==reversed_s:
+#     print("it is a palindrome")
+
+# print(reversed_s)
+
+
+# dictionary={"a":10,"b":20,"c":5}
+
+# min_key=None
+# min_val=None
+
+# for key in dictionary:
+#     if min_val is None or dictionary[key] < min_val:
+#         min_key=key
+#         min_val= dictionary[key]
+        
+
+# print(min_key,min_val)
+
+
+
+
+
+
+# sent="this is ss training sai"
+# count=1
+# for i in sent:
+#     if i == " ":
+#         count+=1
+    
+# print(count)        
+    
+
+# def numbers(*args):
+#     total = 0
+#     count = 0
+#     for num in args:
+#         total += num
+#         count += 1
+#     return total / count
+# print(numbers())
+
+# list1=[5,4,9,7]
+# list2=[3,6,4,11]
+
+# common_ele=[]
+
+# for i in list1:
+#     for j in list2:
+#         if i == j
+#             common_ele = [i] + common_ele
+# print(common_ele)
+
+# def number(num):
+#     if num % 2 == 0:
+#         print("number is even")
+# number(2)
+
+# list1=[1,2,3,4,5,6,7]
+
+# max_val = list1[0]
+# min_val = list1[0]
+
+# for i in range(len(list1)):
+#     if list1[i] > max_val:
+#         max_val = list1[i]
+#     if list1[i] < min_val:
+#         min_val = list1[i]
+# gap=max_val - min_val
+# print(gap)
+
+
+
+# list1=[1,2,3]
+# list2=["a","b","c"]
+        
+# result = []
+# for i in range(len(list1)):
+#     result += [(list1[i], list2[i])]
+ 
+# print(result)
+
+
+
+name = "hello world"
+i = 0
+result = []
+
+while i < len(name):
+    char = name[i]
+    
+    # Check if character is already counted
+    j = 0
+    found = False
+    while j < len(result):
+        if result[j][0] == char:
+            found = True
+            break
+        j += 1
+
+    # If not counted, count its frequency
+    if not found:
+        count = 0
+        k = 0
+        while k < len(name):
+            if name[k] == char:
+                count += 1
+            k += 1
+        result += [(char, count)]  # manually add tuple to result list
+
+    i += 1
+
+# Print the result
+j = 0
+while j < len(result):
+    print(result[j][0], ":", result[j][1])
+    j += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

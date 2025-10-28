@@ -1,0 +1,190 @@
+Jenkins running out of space how to manage old builds
+builds discarder, workspace manage plugin
+=====================
+how to convert lower case file names to a uppercase filenames
+
+for file in *; do
+  upper=$(echo "$file" | tr '[:lower:]' '[:upper:]')
+  if [ "$file" != "$upper" ]; then
+    mv "$file" "$upper"
+  fi
+done
+=======================
+how do u set a limit that no user can create a file larger than 1 gb
+ulimit -f 1048576 (in bashrc or bashprofile)
+================
+how to configure a Jenkins job after other Jenkins job
+Go to the downstream job (the one that should run second).
+Click Configure.
+Scroll to Build Triggers.
+Check "Build after other projects are built".
+Enter the upstream job name.
+Save
+==============
+how do u simulate high memory usage for testing
+stress --vm 1 --vm-bytes 1G --timeout 60s
+=============
+how do u find modified files in last one day
+find -type f -mtime -1
+
+how do u find modified files in last 3 hrs
+find -type f -mmin -180
+==============
+if u push to specific folder only my Jenkins job should trigger. how?
+
+stages {
+        stage('Run only on folder change') {
+            when {
+                changeset "**/your-folder/**"
+            }
+            steps {
+                echo "Changes detected in your-folder. Running job..."
+                // your build steps here
+            }
+==================
+by using Jenkins tags how to deploy
+
+pipeline {
+    agent any
+    triggers {
+        pollSCM('* * * * *') // or use webhook
+    }
+    stages {
+        stage('Deploy on Tag') {
+            when {
+                buildingTag()
+            }
+            steps {
+                echo "Deploying tag ${env.GIT_TAG_NAME}"
+                // your deployment steps here
+===============
+if the port is already is in use how to kill it
+
+lsof -i :<port_number>
+kill -9 PID
+===========
+how to deploy apps with 0 downtime
+Blue-Green Deployment
+==========
+shell script runs manually but fails in Jenkins
+Environment variables, permissions, different bash
+==============
+how to delete blank lines from a file
+grep -v '^$' input.txt > output.txt
+sed -i '/^$/d' input.txt > output.txt
+====================
+user not able to ssh to server
+check ssh running or not and port is open or not and firewall settings
+===============
+server keeps crashing what could be the reason
+how do u secure Jenkins
+Use HTTPS: Configure Jenkins to run over HTTPS using SSL certificates.
+Restrict Access: Use firewalls or reverse proxies to limit access to Jenkins only from trusted IPs.
+Use Strong Authentication:
+Enable Matrix-based security or Project-based Matrix Authorization Strategy.
+Integrate with LDAP, Active Directory, or OAuth for centralized authentication.
+Use API tokens instead of passwords for automation.
+🔐 2. Manage User Permissions Carefully
+Create roles with least privilege access.
+Avoid giving users admin rights unless absolutely necessary.
+Use folders and views to isolate projects and control access.
+🔐 3. Keep Jenkins and Plugins Updated
+Regularly update Jenkins core and plugins to patch vulnerabilities.
+Remove unused or outdated plugins.
+🔐 4. Secure Build Agents
+Use dedicated agents for sensitive jobs.
+Ensure agents are isolated and have limited access to the host system.
+Use agent-to-controller communication over secure channels.
+==========================
+how to pass parameters to Jenkins pipeline
+
+pipeline {
+    agent any
+    parameters {
+        string(name: 'ENV', defaultValue: 'dev', description: 'Environment to deploy to')
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests?')
+        choice(name: 'REGION', choices: ['us-east-1', 'eu-west-1'], description: 'AWS Region')
+    }
+===================
+how to create shared library for Jenkins pipeline
+create a repo in GitHub and add what we need to share across all jobs
+in Jenkins under manage jenkins->configure system->global pipeline libraries
+give git url and credentials if any
+and write down what u want to use in Jenkins file
+======================= 
+server is high load but low cpu
+zombie process,bottlenecks,memoryfull,networklatency
+===========
+how to print variable and string at a time
+
+name = "Vijay"
+print("Hello", name)
+# or using f-string
+print(f"Hello {name}")
+==============
+how to validate output of a shell command in python
+subprocess module
+============
+how to monitor Jenkins builds on alert of failure
+email notifications,slack notifications,pipeline
+===============
+write a script to check whether the website is up are down
+
+import requests
+
+def check_website(url):
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            print(f"{url} is UP ✅")
+        else:
+            print(f"{url} is DOWN ❌ (Status Code: {response.status_code})")
+    except requests.exceptions.RequestException as e:
+        print(f"{url} is DOWN ❌ (Error: {e})")
+
+# Example usage
+check_website("https://www.google.com")
+check_website("https://www.nonexistentwebsite12345.com")
+================================
+loop the list of files and print the line count in it.
+
+for file in *.log; do
+  echo "$file: $(wc -l < "$file")"
+done
+==========
+what is the output of 
+print(5 // 2, 5 / 2)
+
+what is the output of 
+for i in range(3):
+    print(i)
+else:
+    print("Done")
+
+what is the output of 
+print(type(type(5)))
+
+what is the output of 
+class 'type
+a = [1, 2, 3]
+b = a
+a = [4, 5, 6]
+print(b)
+
+what is the output of 
+print([] or "Python")
+
+what is the output of 
+print("Hello" or "World")
+print("apple" > "Apple")
+print(3 * [7])
+print(3 * "7")
+print("hi" * 3)
+print((1, 2) * 3)
+
+[] is []
+
+a = 10
+b = 20
+print("A") if a > b else print("B")
+

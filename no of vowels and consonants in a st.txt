@@ -1,0 +1,43 @@
+no of vowels and consonants in a string
+numbers 10 to 1 in reverse order
+calculate sum of all numbers passed to a function
+multiplication of all numbers passed to a function
+square of a number in function
+if i give any number that number should multiply those many times
+3 means 3*3*3
+
+#!/bin/bash
+find -type f -mtime 7 | exec rm {} \;
+Akhila D H
+8:58 PM
+x = 3
+x += 2
+print(x * 2)
+mylist = ["a", "b", "c"]
+print("d" in mylist)
+Akhila D H
+8:59 PM
+x = "5"
+y = 2
+print(x * y)
+x = [1, 2, 3]
+y = [1, 2, 3]
+print(x is y)
+Akhila D H
+9:01 PM
+x = int(3.7)
+print(x)
+fruits = ["apple", "banana"]
+fruits[0] = "cherry"
+print(fruits)
+Likhitha Gokaraju
+9:19 PM
+#!/bin/bash
+Likhitha Gokaraju
+9:21 PM
+for i in $*
+do
+if sudo systemctl is-active i  >/dev/null;then
+echo "$i is up and running"
+else:
+echo "

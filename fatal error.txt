@@ -1,0 +1,47 @@
+fatal error
+pip and python
+==========
+git version
+2.47.1
+
+maven 
+3.8.7
+
+Jenkins
+2.518
+
+java
+21
+
+size of Jenkins master
+m5.2.xlarge
+===============
+how to disable user login
+user should exist but disable the access
+
+sudo usermod -L username     # Locks the user account
+sudo usermod -U username     # Unlocks the user
+
+sudo usermod -s /sbin/nologin username  # Prevents login
+sudo usermod -s /bin/bash username  #again provides access
+
+=============
+2/2 status check on aws console
+why we prefer ubuntu over RHEL for Jenkins
+
+To comment out middle lines in vi editor (!-- and -->)
+============
+Q) how to change the default path of Jenkins
+
+sudo systemctl stop jenkins
+sudo mkdir /new/path/to/jenkins_home
+sudo chown -R jenkins:jenkins /new/path/to/jenkins_home
+sudo nano(or)vi /etc/default/jenkins
+JENKINS_HOME=/var/lib/jenkins
+change it to 
+JENKINS_HOME=/new/path/to/jenkins_home
+sudo systemctl start jenkins
+
+==============
+Q) why Jenkins go down
+Q)

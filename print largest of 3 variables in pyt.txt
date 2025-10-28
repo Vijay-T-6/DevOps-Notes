@@ -1,0 +1,14 @@
+print largest of 3 variables in python
+reverse a string without using built in function
+how do u rollback in Jenkins if post deploy fails
+Jenkins get struck during parallel stages or steps how to resolve
+how to detect file changes in git repo for a specific module(git diff)
+extarcts git commit logs of from the last deployement and emails them
+how do u create a Jenkins pipeline that dynamically chooses a branch to build based on inputs
+filename having spaces replace those spaces with underscore
+cgroups and system resource limits
+how to trouble shoot high load average when the cpu usage is low
+
+how to run next stage after copleto o present sagecurrentbuild.result
+
+ 

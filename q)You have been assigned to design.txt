@@ -1,0 +1,46 @@
+q)You have been assigned to design a VPC architecture for a 2-tier application. The application needs to be highly available and scalable. How would you design the VPC architecture?
+
+1. VPC Setup
+Create a VPC with a CIDR block (e.g., 10.0.0.0/16).
+Use multiple Availability Zones (AZs) for high availability.
+2. Subnets
+Public Subnets (in each AZ):
+For Load Balancer and NAT Gateway.
+Private Subnets (in each AZ):
+For Application Tier (Web/App servers).
+For Database Tier (RDS or other DB services).
+Example:
+
+AZ1: Public Subnet A, Private Subnet A1 (App), Private Subnet A2 (DB)
+AZ2: Public Subnet B, Private Subnet B1 (App), Private Subnet B2 (DB)
+3. Internet Gateway & NAT Gateway
+Attach an Internet Gateway to the VPC.
+Deploy NAT Gateways in public subnets to allow private subnets to access the internet securely.
+4. Route Tables
+Public subnets: Route to Internet Gateway.
+Private subnets: Route to NAT Gateway.
+5. Security Groups & NACLs
+Security Groups:
+Load Balancer: Allow inbound HTTP/HTTPS.
+App Tier: Allow inbound from Load Balancer only.
+DB Tier: Allow inbound from App Tier only.
+Network ACLs: Optional for extra layer of security.
+6. Load Balancer
+Use an Application Load Balancer (ALB) in public subnets to distribute traffic to app servers in private subnets.
+7. Auto Scaling
+Configure Auto Scaling Groups for the App Tier across multiple AZs.
+8. Database Layer
+Use Amazon RDS with Multi-AZ deployment for high availability.
+Place RDS instances in private subnets.
+9. Monitoring & Logging
+Enable CloudWatch for metrics and logs.
+Use VPC Flow Logs for network traffic analysis.
+📌 Optional Enhancements
+Bastion Host in public subnet for secure SSH access to private instances.
+Elastic IPs for NAT Gateways.
+PrivateLink or Transit Gateway for hybrid or multi-VPC setups.
+========================================================
+q)Your organization has a VPC with multiple subnets, you want to restrict outbound internet access for resources in one subnet but allow outbound internet access for resources in another subnet how would you achieve this?
+
+Ensure that security groups for instances in Subnet do not allow outbound traffic to 0.0.0.0/0 unless explicitly required.
+===========================================

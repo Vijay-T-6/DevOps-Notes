@@ -1,0 +1,32 @@
+how clone private repo in Jenkins
+add credentials
+manage Jenkins -- credentials--system--global--add
+
+how to take backup
+install periodic backup manager plugin
+cron-->maximum backups-->no of days-->file management strategy-->storage strategy-->path
+
+
+master and slave
+manage Jenkins -->nodes-->create new, no of executors, home path, lable,usage, ssh, pemkey, availabity,manual trust 
+for tomcat move the war file from target to webapps
+
+Matrix-Based Security --> permissions to individual users and groups
+Project-Based Matrix Authorization-->Similar to matrix-based security but applies per project/job.
+Role-Based Strategy Plugin-->Lets you define roles (e.g., admin, developer, viewer) and assign them to users or groups
+
+create user
+manage jenkins-->Jenkins own user database--> createuser
+
+provide access
+manage jenkins-->security
+
+
+manage Jenkins -manage and assign roles--manage roles--assign roles
+
+global roles, item roles
+
+if u lost access how to get back
+ stop Jenkins 
+var/lib/Jenkins/config.xml --usesecurity as false
+start Jenkins

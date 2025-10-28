@@ -1,0 +1,28 @@
+is Jenkins traditional name of Hudson? No
+==================
+path for initial admin password
+/var/lib/jenkins/secrets/initialAdminPassword
+(or) ~/.jenkins/secrets/initialAdminPassword
+=====================
+how many no of slaves can a master have-no limit
+==================
+jabber and slack plugins
+==================
+which plugin helps to render the upstream and downstream relationships of connected jobs
+build pipeline plugin
+===============
+which plugin used to assign the cleanup jobs to the specific nodes
+NodeLabel Parameter Plugin
+================
+which plugin in jenkins automatically backup the global and job specific configuration
+ThinBackup Plugin
+================
+cobertura or Jacoco plugin
+============
+which plugin handles mass configuration of properties across any collection such as slaves project builds
+Configuration Slicing Plugin
+======================
+join plugin
+===============
+
+
